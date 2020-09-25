@@ -56,7 +56,7 @@ pipeline {
       steps{
         echo "------------>Unit Tests<------------"
 
-        //sh 'gradle --b ./build.gradle test'
+        sh './build.gradle test'
       }
     }
 
