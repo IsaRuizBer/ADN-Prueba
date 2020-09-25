@@ -36,19 +36,19 @@ pipeline {
       }
     }
 
-     stage('Compile') {
+     stage('Compile W') {
             			steps{
             					echo "------------>Compile<------------"
             					sh './gradlew build'
 
             			}
             		}
- /*   stage('Compile') {
+   stage('Compile') {
           steps{
-             sh 'gradle --b ./build.gradle compileJava'
+             sh './build.gradle compileJava'
              }
         }
-*/
+
 
 
 
