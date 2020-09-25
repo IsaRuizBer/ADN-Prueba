@@ -33,11 +33,21 @@ pipeline {
         url:'https://github.com/IsaRuizBer/ADN-Prueba']]])
       }
     }
+
+     stage('Test GradleW') {
+            			steps{
+            					echo "------------>Compile<------------"
+            					sh './gradlew build'
+
+            			}
+            		}
     stage('Compile') {
           steps{
              sh 'gradle --b ./build.gradle clean compileJava'
              }
         }
+
+
 
 
     stage('Compile & Unit Tests') {
