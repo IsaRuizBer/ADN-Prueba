@@ -35,7 +35,7 @@ pipeline {
     }
     stage('Compile') {
           steps{
-             sh 'gradle --b ./ADN-Prueba/build.gradle clean compileJavalo'
+             sh 'gradle --b ./ADN-Prueba/build.gradle clean compileJava'
              }
         }
 
