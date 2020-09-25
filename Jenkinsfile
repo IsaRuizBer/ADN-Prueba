@@ -45,7 +45,7 @@ pipeline {
             		}
    stage('Compile') {
           steps{
-             sh './build.gradle compileJava'
+             sh 'compileJava'
              }
         }
 
