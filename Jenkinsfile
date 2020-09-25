@@ -32,7 +32,7 @@ pipeline {
         credentialsId: 'GitHub_IsaRuizBer',
         url:'https://github.com/IsaRuizBer/ADN-Prueba']]])
         sh 'chmod +x gradlew'
-        sh './gradlew --b ./build.gradle clean
+        sh './gradlew --b ./build.gradle clean'
       }
     }
 
@@ -45,7 +45,7 @@ pipeline {
             		}
     stage('Compile') {
           steps{
-             sh 'gradle --b ./build.gradle clean compileJava'
+             sh 'gradle --b ./build.gradle compileJava'
              }
         }
 
