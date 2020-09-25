@@ -33,6 +33,8 @@ pipeline {
         url:'https://github.com/IsaRuizBer/ADN-Prueba']]])
         //sh 'gradle --b ./build.gradle clean'
         sh 'chmod +x gradlew'
+        //sh './gradlew clean'
+        sh './gradlew --b ./build.gradle clean
       }
     }
 
