@@ -30,14 +30,15 @@ pipeline {
         submoduleCfg: [],
         userRemoteConfigs: [[
         credentialsId: 'GitHub_IsaRuizBer',
-        url:'https://github.com/IsaRuizBer/ADN-Prueba'
-        ]]
-        ])
-      }
-      steps{
-      sh 'gradle --b ./ADN-Prueba/build.gradle clean compileJavalo'
+        url:'https://github.com/IsaRuizBer/ADN-Prueba']]])
       }
     }
+    stage('Compile') {
+          steps{
+             sh 'gradle --b ./ADN-Prueba/build.gradle clean compileJavalo'
+             }
+        }
+
 
     stage('Compile & Unit Tests') {
       steps{
@@ -71,6 +72,10 @@ sh "${tool name: 'SonarScanner', type:'hudson.plugins.sonar.SonarRunnerInstallat
     }
     failure {
       echo 'This will run only if failed'
+      echo 'This will run only if failed'
+      mail (to: 'isaura.ruiz@ceiba.com.co',subject: "Failed Pipeline:${currentBuild.fullDisplayName}",body: "Something is wrong with ${env.BUILD_URL}")
+
+
     }
     unstable {
       echo 'This will run only if the run was marked as unstable'
