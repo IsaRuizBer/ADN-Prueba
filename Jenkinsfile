@@ -43,22 +43,23 @@ pipeline {
 
             			}
             		}
-  /* stage('Compile') {
+  stage('Compile') {
           steps{
-             sh './build.gradle compileJava'
+            // sh './build.gradle compileJava'
+            sh './gradlew --b ./build.gradle compileJava'
              }
         }
 
-*/
+
 
 
     stage('Compile & Unit Tests') {
       steps{
         echo "------------>Cleaning previous compilations<------------"
-                sh 'gradle --b ./build.gradle clean'
+                sh 'gradlew --b ./build.gradle clean'
 
                   echo "------------>Unit Tests<------------"
-                  sh 'gradle --b ./build.gradle test'
+                  sh 'gradlew --b ./build.gradle test'
 
       }
     }
@@ -75,7 +76,7 @@ sh "${tool name: 'SonarScanner', type:'hudson.plugins.sonar.SonarRunnerInstallat
     stage('Build') {
       steps {
         echo "------------>Build<------------"
-          sh 'gradle --b ./backend/build.gradle build -x test'
+          sh 'gradlew --b ./backend/build.gradle build -x test'
       }
     }
   }
